@@ -3,7 +3,7 @@ Script Python otomatis untuk mengecek **Hasil Ujian** di SION.
 ## 🔥 Fitur Utama
 
 - **Auto-Login:** Otomatis mengisi NIM dan Password jika sesi habis.
-- **Session Keeper:** Menyimpan Cookies & Cache browser (Profile) agar tidak perlu login berulang-ulang.
+- **Session Keeper:** Menyimpan Cookies & Cache browser agar tidak perlu login berulang-ulang.
 - **Notifikasi Perubahan:** Membandingkan data lokal dengan server kemudian memberi tahu di terminal jika ada nilai baru yang keluar.
 - **Anti-Cloudflare Loop:** Menggunakan `undetected-chromedriver` untuk mengatasi masalah pada **Infinite Loop** yang membuat driver biasa tidak bisa login.
 
