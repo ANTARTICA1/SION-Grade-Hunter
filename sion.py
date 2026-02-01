@@ -25,7 +25,6 @@ def main():
         driver.get(TARGET_URL)
         time.sleep(3) 
 
-
         if "login" in driver.current_url:
             try:
                 driver.find_element(By.NAME, "username").send_keys(login.NIM)
@@ -72,7 +71,6 @@ def main():
 
                 komponen_nilai = []
                 seen_entries = set()
-                
 
                 tombol_cpmk = panel.find_elements(By.CSS_SELECTOR, ".btn-cpmk")
                 
@@ -81,15 +79,12 @@ def main():
                         try:
                             driver.execute_script("arguments[0].click();", cpmk)
                             time.sleep(1) 
-                            
                             rows = panel.find_elements(By.TAG_NAME, "tr")
-                            
                             for row in rows:
                                 cols = row.find_elements(By.TAG_NAME, "td")
                                 if len(cols) >= 3:
                                     nama = cols[0].text.strip()
                                     nilai = cols[2].text.strip() 
-                                    
                                     if not nilai.replace('.', '').isdigit() and len(cols) > 1:
                                         if cols[1].text.strip().replace('.', '').isdigit():
                                             nilai = cols[1].text.strip()
@@ -99,7 +94,6 @@ def main():
                                     
                                     if not is_sampah and nilai.replace('.', '').isdigit():
                                         entry = f"{nama} : {nilai}"
-                                        
                                         if entry not in seen_entries:
                                             komponen_nilai.append(f"   > {nama:<20} : {nilai}")
                                             seen_entries.add(entry)
@@ -120,13 +114,25 @@ def main():
                 out = f"=== {judul} ===\n"
                 out += f"FINAL: {nilai_akhir_angka} ({nilai_akhir_huruf})\n"
                 out += "DETAIL:\n"
+                
                 if komponen_nilai:
-                    komponen_nilai.sort() 
+                    priority = {"KUIS": 1, "TUGAS": 2, "UTS": 3, "UAS": 4}
+                    
+                    def sort_logic(item):
+                        clean_item = item.strip().upper()
+                        rank = 99
+                        for key, val in priority.items():
+                            if key in clean_item:
+                                rank = val
+                                break
+                        return (rank, clean_item)
+
+                    komponen_nilai.sort(key=sort_logic)
                     out += "\n".join(komponen_nilai)
                 else:
                     out += "   (Tidak ada detail nilai)"
-                out += "\n" + "="*40 + "\n"
                 
+                out += "\n" + "="*40 + "\n"
                 hasil_scan.append(out)
 
                 driver.execute_script("arguments[0].click();", btn)
@@ -139,9 +145,11 @@ def main():
 
         final_text = "\n".join(hasil_scan)
         print("\n" + final_text)
+        
         with open(FILE_CATATAN, "w", encoding="utf-8") as f:
             f.write(final_text)
-        print(f"\n[SUKSES] Data disimpan di: {FILE_CATATAN}")
+            
+        print(f"\n[SUKSES] Data disimpan di: {os.path.abspath(FILE_CATATAN)}")
 
     except Exception as e:
         print(f"[CRITICAL] {e}")

@@ -3,6 +3,5 @@ login.py
 Profile_SION_Fix/
 Profile_SION/
 __pycache__/
-data_hasil_ujian.txt
-data_hasil_ujian_lengkap.txt
+data_nilai_lengkap_fix.txt
 *.log

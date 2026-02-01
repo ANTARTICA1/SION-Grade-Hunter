@@ -1,2 +1,2 @@
-NIM = "XXXXXX"        # Ganti dengan NIM kamu
-PASSWORD = "XXXXXXXX" # Ganti dengan Password kamu
+NIM = "240040075"        # Ganti dengan NIM kamu
+PASSWORD = "PEXWTI90" # Ganti dengan Password kamu
