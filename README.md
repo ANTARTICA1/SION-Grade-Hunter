@@ -30,5 +30,5 @@ PASSWORD = "XXXXXXXX" # Masukkan Password SION
 * `sion.py`: Main Program.
 * `login.py`: File kredensial.
 * `Profile_SION_Fix/`: Folder otomatis yang menyimpan sesi login Chrome.
-* `data_hasil_ujian.txt`: File otomatis yang menyimpan data nilai terakhir.
+* `data_nilai_lengkap.txt`: File otomatis yang menyimpan data nilai terakhir.
 
