@@ -6,6 +6,11 @@ A Python automation utility engineered to monitor, scrape, and detect updates to
 
 Student portals frequently publish examination results unpredictably across multiple evaluation intervals, requiring repetitive manual authentication and page refreshing. SION Grade Hunter automates this observation loop. By maintaining persistent Chrome profile caches and diffing remote tabular grade data against local historical records, students receive instant terminal alerts whenever new course grades or grade modifications are posted.
 
+
+## Execution Preview
+
+[![Execution Preview Status](https://img.shields.io/badge/Automation_Preview-Documentation_in_Progress-2563eb?style=for-the-badge&logo=python&logoColor=white)](https://github.com/ANTARTICA1/SION-Grade-Hunter)
+
 ## Technical Architecture and Features
 
 - Anti-Bot & Cloudflare Bypass: Utilizes `undetected-chromedriver` (`uc.Chrome`) to patch Chromedriver binary fingerprints in memory, avoiding infinite verification loops and WebGL/WebDriver detection flags.
